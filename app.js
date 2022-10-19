@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan =require('morgan')
 const MenuRoutes =require('./api-routes/menu-api-rouets')
+const Table =require('./api-routes/Table-api-routes')
 const cors = require("cors");
 const app = express();
 
@@ -25,6 +26,8 @@ app.use(function(req, res, next) {
 
 
 app.use('/api/v1',MenuRoutes)
+
+app.use('/api/v2',Table)
 
 // Page Not Found Error
 app.use('*',(req,res,next)=>{
