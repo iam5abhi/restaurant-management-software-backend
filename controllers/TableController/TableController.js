@@ -68,5 +68,11 @@ let Totalamount = data.reduce(function(prev, cur) {
 
 
 exports.getTableBilling=(req,res,next)=>{
+  Table.findOne({TableNumber:req.params.id},function(err,tableBilling){
+    if(!tableBilling){
+        res.send("err")
+    }
 
+    console.log(tableBilling)
+  })
 }
