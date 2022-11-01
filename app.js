@@ -29,10 +29,6 @@ app.use('/api/v1',MenuRoutes)
 
 app.use('/api/v2',Table)
 
-// Page Not Found Error
-app.use('*',(req,res,next)=>{
-    next(new Error(`can't find ${req.originalUrl} on this server`,404))
-})
 
 
 
