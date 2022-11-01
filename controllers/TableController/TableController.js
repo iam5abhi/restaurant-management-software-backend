@@ -43,6 +43,12 @@ exports.getAllTable=(req,res,next)=>{
 }
 
 exports.TableBilling=(req,res,next)=>{
+    console.log(req.params.id)
+console.log(req.body,"body")
+const data = req.body
+let Totalamount = data.reduce(function(prev, cur) {
+    return prev +cur.price*1;
+  }, 0);
 
 }
 

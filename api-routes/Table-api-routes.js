@@ -9,7 +9,7 @@ router
 
 
 router
-    .route('/Billing')
+    .route('/Billing/:id')
     .patch(Table.TableBilling)    
     .get(Table.getTableBilling)
 
