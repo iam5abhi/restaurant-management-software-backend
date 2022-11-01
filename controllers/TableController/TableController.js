@@ -43,5 +43,12 @@ exports.getAllTable=(req,res,next)=>{
 }
 
 exports.TableBilling=(req,res,next)=>{
-    
+
+}
+
+
+
+
+exports.getTableBilling=(req,res,next)=>{
+
 }
