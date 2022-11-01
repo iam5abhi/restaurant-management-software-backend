@@ -8,7 +8,7 @@ exports.AddTable=(req,res,next)=>{
     let TableNumber = [];
     for (let i=1;i<=table;i++){
         let data ={
-           TableNumber:`Table ${i}`
+           TableNumber:`${i}`
         }
         TableNumber.push(data);
         
@@ -43,12 +43,24 @@ exports.getAllTable=(req,res,next)=>{
 }
 
 exports.TableBilling=(req,res,next)=>{
-    console.log(req.params.id)
-console.log(req.body,"body")
 const data = req.body
 let Totalamount = data.reduce(function(prev, cur) {
     return prev +cur.price*1;
   }, 0);
+
+  const updateData={
+    items:data,
+    Totalamount:Totalamount
+  }
+
+  Table.findByIdAndUpdate({TableNumber:req.params.id},{$set:updateData},function(err,bill){
+     if(err){
+        res.send("err")
+     }
+     res.status(200).json({
+        message:"bill genertated sucssfully",
+      })
+  })
 
 }
 
