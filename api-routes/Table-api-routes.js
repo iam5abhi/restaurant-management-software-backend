@@ -6,7 +6,12 @@ router
     .route('/table')
     .get(Table.getAllTable)
     .post(Table.AddTable)
-    
+
+
+router
+    .route('/Billing')
+    .patch(Table.TableBilling)    
+    .get(Table.getTableBilling)
 
 
 

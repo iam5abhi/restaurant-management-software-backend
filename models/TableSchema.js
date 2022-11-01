@@ -8,7 +8,8 @@ const TableSchema = new mongoose.Schema(
        },
       items:[{
         menuname:String,
-        price:Number
+        price:Number,
+        quantity:Number,
       }],
       Totalamount:{
         type:String
