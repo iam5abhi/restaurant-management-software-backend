@@ -73,6 +73,8 @@ exports.getTableBilling=(req,res,next)=>{
         res.send("err")
     }
 
-    console.log(tableBilling)
+   res.status(200).json({
+    tableBilling
+   })
   })
 }
