@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const TableSchema = new mongoose.Schema(
     {
        TableNumber:{
-           type:String
+           type:Number
        },
       items:[{
         menuname:String,
@@ -12,7 +12,8 @@ const TableSchema = new mongoose.Schema(
         quantity:Number,
       }],
       Totalamount:{
-        type:String
+        type:Number,
+        default:0
     }
     }
    );
