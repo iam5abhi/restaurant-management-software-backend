@@ -87,21 +87,5 @@ exports.getTableBilling=(req,res,next)=>{
 
 exports.Settle =(req,res,next)=>{ 
     console.log(req.body,"body")
-//    const odersdata={
-//     TableNumber:req.body.TableNumber,
-//     items:req.body.items,
-//     Totalamount:req.body.Totalamount
-//    }
-
-//    const oders =new Oders(odersdata)
-//    oders.save((err,data)=>{
-//     Table.updateOne({TableNumber:req.params.id},{$set:{items:[],Totalamount:0}},{new: true, upsert: true},function(err,data){})
-//     if(err){
-//       console.log(err.message)
-//     }
-//     res.status(200).json({
-//       data:data
-//     })
-//  })
 
 }
