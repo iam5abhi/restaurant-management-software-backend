@@ -13,8 +13,9 @@ router
     .patch(Table.TableBilling)    
     .get(Table.getTableBilling)
 
-
-
+router
+      .route('/settle/:id')
+      .post(Table.Settle)
 
 
 module.exports = router

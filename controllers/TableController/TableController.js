@@ -1,4 +1,5 @@
 const Table =require('../../models/TableSchema')
+const Oders =require('../../models/OderShecma')
 
 
 
@@ -48,23 +49,24 @@ exports.TableBilling=async(req,res,next)=>{
          return prev +cur.price*1;
        }, 0);
 
- const daa=await Table.findOne({TableNumber:req.params.id})
-  for(let i=0;i<data.length;i++){
-    console.log(data[i].price)
-   Table.updateOne({TableNumber:req.params.id},{$push:{items:{menuname:data[i].menuname,price:data[i].price,quantity:data[i].quantity}}},{new: true, upsert: true},function(err,data){})
-  }
+   const tableData= await Table.findOne({TableNumber:req.params.id})
+       const update_data={
+           kot:tableData.items.length*1+1*1,
+           items:data
+       }
+  Table.updateOne({TableNumber:req.params.id},{$push:{items:update_data}},{new: true, upsert: true},function(err,data){})
 
-  Table.updateOne({TableNumber:req.params.id},{$set:{Totalamount:daa.Totalamount+Totalprice}},{new: true, upsert: true},function(err,data){
-    if(!data){
-        res.status(400).json({
-            message:"item is not added"
-        })
-    }
-    res.status(200).json({
-        message:"susscessfully",
-        data:data
-    })
-  })
+ Table.updateOne({TableNumber:req.params.id},{$set:{Totalamount:tableData.Totalamount+Totalprice}},{new: true, upsert: true},function(err,data){
+   if(!data){
+       res.status(400).json({
+           message:"item is not added"
+       })
+   }
+   res.status(200).json({
+       message:"susscessfully",
+       data:data
+   })
+ })
 }
 
 
@@ -80,4 +82,26 @@ exports.getTableBilling=(req,res,next)=>{
     tableBilling
    })
   })
+}
+
+
+exports.Settle =(req,res,next)=>{ 
+    console.log(req.body,"body")
+//    const odersdata={
+//     TableNumber:req.body.TableNumber,
+//     items:req.body.items,
+//     Totalamount:req.body.Totalamount
+//    }
+
+//    const oders =new Oders(odersdata)
+//    oders.save((err,data)=>{
+//     Table.updateOne({TableNumber:req.params.id},{$set:{items:[],Totalamount:0}},{new: true, upsert: true},function(err,data){})
+//     if(err){
+//       console.log(err.message)
+//     }
+//     res.status(200).json({
+//       data:data
+//     })
+//  })
+
 }
