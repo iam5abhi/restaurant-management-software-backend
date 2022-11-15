@@ -85,7 +85,32 @@ exports.getTableBilling=(req,res,next)=>{
 }
 
 
-exports.Settle =(req,res,next)=>{ 
-    console.log(req.body,"body")
-
+exports.Settle =async(req,res,next)=>{ 
+    const oderdata={
+        Phone_Number:req.body.Phone_Number||1234567890,
+        Guest_Name:req.body.Guest_Name,
+        Email:req.body.Email,
+        Gender:req.body.Gender,
+        GSTIN:req.body.GSTIN,
+        DOB:req.body.DOB,
+        Anniversary_Date:req.body.Anniversary_Date,
+        oderdata:req.body.items,
+        TableNumber:req.body.TableNumber,
+        Totalamount:req.body.Totalamount
+    }
+  const newOder =await Oders.create(oderdata)
+  
+   
+  if(!newOder){
+    res.status(500).json({
+       message:"Internal sever error"
+    })
+  }else{
+    Table.updateOne({TableNumber:req.params.id},{$set:{items:[],Totalamount:0}},{new: true, upsert: true},function(err,data){})
+    console.log(newOder)
+    res.status(200).json({
+        message:"Oder is settle",
+        data:newOder
+    })
+  }
 }

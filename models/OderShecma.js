@@ -1,26 +1,5 @@
 const mongoose = require("mongoose");
 const OderSchema= new mongoose.Schema({
-  //   TableNumber:{
-  //       type:Number
-  //   },
-  //  items:[
-  //   {
-  //     kot:{
-  //       type:Number
-  //     },
-  //     items:[
-  //       {
-  //       menuname:String,
-  //       price:Number,
-  //       quantity:Number,
-  //       }
-  //     ],
-  //   }
-  //  ],
-  //  Totalamount:{
-  //   type:Number,
-  //   default:0
-  // }
     Phone_Number:{
        type:Number,
        required: true
@@ -40,8 +19,32 @@ const OderSchema= new mongoose.Schema({
     DOB:{
       type:String
     },
-    
-  
+    Anniversary_Date:{
+      type:String
+    },
+    Address:{
+       type:String
+    },
+    oderdata:[
+      {
+        kot:{
+          type:Number
+        },
+        items:[
+          {
+          menuname:String,
+          price:Number,
+          quantity:Number,
+          }
+        ],
+      }
+    ],
+    TableNumber:{
+      type:Number
+    },
+    Totalamount:{
+       type:Number
+    }
 })
 const Oders = mongoose.model("Oders", OderSchema);
 module.exports=Oders 
