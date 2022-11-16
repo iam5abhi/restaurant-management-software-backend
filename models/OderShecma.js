@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const OderSchema= new mongoose.Schema({
     Phone_Number:{
        type:Number,
-       required: true
     },
     Guest_Name:{
        type:String
