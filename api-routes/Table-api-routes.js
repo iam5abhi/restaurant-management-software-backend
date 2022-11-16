@@ -17,5 +17,8 @@ router
       .route('/settle/:id')
       .post(Table.Settle)
 
+router
+     .route('/oders')   
+     .get(Table.GetAlloders)   
 
 module.exports = router

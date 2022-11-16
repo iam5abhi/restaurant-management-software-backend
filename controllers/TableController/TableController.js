@@ -115,3 +115,19 @@ exports.Settle =async(req,res,next)=>{
     })
   }
 }
+
+
+
+exports.GetAlloders =(req,res,next)=>{
+    Oders.find({},function(err,data){
+        if(err){
+            res.status(500).json({
+
+            })
+        }else{
+            res.status(200).json({
+                data:data
+            })
+        }
+    })
+}
