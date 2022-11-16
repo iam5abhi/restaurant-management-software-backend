@@ -10,9 +10,6 @@ const OderSchema= new mongoose.Schema({
     Email:{
       type:String
     },
-    Gender:{
-      type:String
-    },
     GSTIN:{
       type:String
     },
@@ -24,6 +21,9 @@ const OderSchema= new mongoose.Schema({
     },
     Address:{
        type:String
+    },
+    gender:{
+      type:String
     },
     oderdata:[
       {
@@ -44,6 +44,9 @@ const OderSchema= new mongoose.Schema({
     },
     Totalamount:{
        type:Number
+    },
+    payment:{
+      type:String
     }
 })
 const Oders = mongoose.model("Oders", OderSchema);

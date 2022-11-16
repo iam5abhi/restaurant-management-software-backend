@@ -87,16 +87,17 @@ exports.getTableBilling=(req,res,next)=>{
 
 exports.Settle =async(req,res,next)=>{ 
     const oderdata={
-        Phone_Number:req.body.Phone_Number||1234567890,
+        Phone_Number:req.body.Phone_Number,
         Guest_Name:req.body.Guest_Name,
         Email:req.body.Email,
-        Gender:req.body.Gender,
         GSTIN:req.body.GSTIN,
         DOB:req.body.DOB,
+        gender:req.body.gender,
         Anniversary_Date:req.body.Anniversary_Date,
         oderdata:req.body.items,
         TableNumber:req.body.TableNumber,
-        Totalamount:req.body.Totalamount
+        Totalamount:req.body.Totalamount,
+        payment:req.body.payment_option
     }
   const newOder =await Oders.create(oderdata)
   
