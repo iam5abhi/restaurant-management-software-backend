@@ -136,10 +136,26 @@ exports.GetAlloders =(req,res,next)=>{
 
 
 exports.GetCustomerDetail =(req,res,next)=>{
-
+    Oders.findOne({Phone_Number:req.query.phoneNumber},(err,data)=>{
+        if(!data){
+            res.status(404).json({
+                message:"Customer is not Exits"
+            })
+        }
+        res.status(200).json({
+            Phone_Number:data.Phone_Number,
+            Guest_Name:data.Guest_Name,
+            Email:data.Email,
+            DOB:data.DOB,
+            Anniversary_Date:data.Anniversary_Date,
+            Address:data.Address
+        })
+    })
 }
 
 
 
 
-exports.getAllCustomerDetails
+exports.GetAllCustomerDetails =(req,res,next)=>{
+
+}
