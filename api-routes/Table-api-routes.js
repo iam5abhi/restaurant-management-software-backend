@@ -21,4 +21,8 @@ router
      .route('/oders')   
      .get(Table.GetAlloders)   
 
+router
+     .route('/customerdetail')    
+     .get(Table.GetCustomerDetail) 
+
 module.exports = router

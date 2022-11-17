@@ -95,6 +95,7 @@ exports.Settle =async(req,res,next)=>{
         gender:req.body.gender,
         Anniversary_Date:req.body.Anniversary_Date,
         oderdata:req.body.items,
+        Address:req.body.Address,
         TableNumber:req.body.TableNumber,
         Totalamount:req.body.Totalamount,
         payment:req.body.payment_option
@@ -131,3 +132,14 @@ exports.GetAlloders =(req,res,next)=>{
         }
     })
 }
+
+
+
+exports.GetCustomerDetail =(req,res,next)=>{
+
+}
+
+
+
+
+exports.getAllCustomerDetails
